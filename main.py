@@ -1,7 +1,11 @@
+import ast
+
 # This function takes a string and counts repeating characters.
 # It returns a list of tuples.
 
 def encodeString(letters): 
+    if letters == "":
+        return []
     currentChar = None 
     result = []
     count = 1
@@ -48,7 +52,7 @@ def decodeFile(filename):
     with open(filename, "r") as openedFile:
         content = openedFile.read()
 
-    real = eval(content)
+    real = ast.literal_eval(content)
     original = decodeString(real)
 
     return original
